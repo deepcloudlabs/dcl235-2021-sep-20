@@ -1,10 +1,10 @@
 package com.example;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class InterfacesNewFeatures {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int w = 42; // type: int -> primitive type
 		BigDecimal b = BigDecimal.valueOf(123.456); // type: class -> BigDecimal

@@ -1,8 +1,6 @@
 package com.example;
 
-import java.io.Serializable;
-
-public class Cat extends Animal implements Pet,Serializable {
+public class Cat extends Animal implements Pet {
 	private String name;
 
 	public Cat() {
