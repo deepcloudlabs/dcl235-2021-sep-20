@@ -2,8 +2,6 @@ package com.example.handler;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.Date;
 
 public class ProfilingHandler implements InvocationHandler {
 	private Object target;

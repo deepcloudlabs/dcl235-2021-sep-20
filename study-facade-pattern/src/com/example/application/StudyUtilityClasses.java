@@ -1,6 +1,5 @@
 package com.example.application;
 
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -12,7 +11,7 @@ public class StudyUtilityClasses {
 		// Files -> Java IO
 		// Arrays -> array
 		// Stream -> Stream API
-		ArrayList<Integer> s= new ArrayList();
+		ArrayList<Integer> s= new ArrayList<>();
 		s.sort(Integer::compare);
 		Collections.sort(s,Integer::compare);
 		// Files.copy(source, out)

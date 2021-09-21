@@ -16,7 +16,7 @@ import com.example.xml.parser.GenericHandler;
  *
  * @author Dr. Binnur Kurt (binnur.kurt@gmail.com)
  */
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "deprecation" })
 public class CountryTableExample extends JFrame {
 
 	private JCustomTable<Country> customTable;
@@ -33,7 +33,7 @@ public class CountryTableExample extends JFrame {
 		setVisible(true);
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({ "unused" })
 	public static void main(String[] args) {
 		try {
 			XMLReader parser = XMLReaderFactory.createXMLReader();

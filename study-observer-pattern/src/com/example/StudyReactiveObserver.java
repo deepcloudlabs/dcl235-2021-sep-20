@@ -2,17 +2,16 @@ package com.example;
 
 import java.util.List;
 import java.util.concurrent.Flow;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.Flow.Publisher;
 import java.util.concurrent.Flow.Subscription;
 import java.util.concurrent.SubmissionPublisher;
+import java.util.concurrent.TimeUnit;
 
 import com.example.event.TradeEvent;
 
 public class StudyReactiveObserver {
 
 	public static void main(String[] args) {
-		SubmissionPublisher<TradeEvent> publisher = new SubmissionPublisher();
+		SubmissionPublisher<TradeEvent> publisher = new SubmissionPublisher<>();
 		publisher.subscribe(new FastObserver());
 		publisher.subscribe(new SlowObserver());
 		var events = List.of(
