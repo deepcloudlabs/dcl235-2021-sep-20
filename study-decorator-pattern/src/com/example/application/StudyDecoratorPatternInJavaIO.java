@@ -11,8 +11,10 @@ public class StudyDecoratorPatternInJavaIO {
 	public static void main(String[] args) throws IOException {
 		Rectangle rect = new Rectangle(10, 10, 0, 0);
 		File file = new File("c:/tmp","myrect.dat");
-		try(FileOutputStream os = new FileOutputStream(file); 
-		ObjectOutputStream oos = new ObjectOutputStream(os);){
+		try( // try-with-resources
+			FileOutputStream os = new FileOutputStream(file); 
+			ObjectOutputStream oos = new ObjectOutputStream(os);
+		){
 			oos.writeObject(rect);
 		}
 	
