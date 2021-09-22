@@ -1,6 +1,8 @@
 package com.example;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
 import java.nio.file.Files;
@@ -10,13 +12,24 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class StudyVisitorPatternInNIO2 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		// Composite Pattern: Path: Directory, Regular File/File, DirectoryStream
+		// Iterator Pattern
 		Path path = Paths.get("c:\\tmp");
+		// Lazy Loading
+		for(Path dir : Files.newDirectoryStream(path)) {
+			System.err.println(dir.getFileName());
+		}
+		File file = new File("c:\\tmp"); // since java 1
+		for (String dir : file.list()) {
+			System.err.println(dir);			
+		}
 		if (!Files.isDirectory(path)) {
 			System.err.println("This is not a directory");
 			System.exit(1);
 		}
 		try {
+			// Internal Loop <-- Iterator Pattern
 			Files.walkFileTree(path, new DeleteTextFileVisitor());
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
