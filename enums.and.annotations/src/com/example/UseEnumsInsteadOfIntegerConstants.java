@@ -6,18 +6,18 @@ public class UseEnumsInsteadOfIntegerConstants {
 	public static void main(String[] args) {
 		System.err.println(ADD.apply(3, 2));
 		for (var status : AccountStatus.values()) {
-			System.err.println(status.name()+": "+status.ordinal()+", "+status.getCode());
-		}	
+			System.err.println(status.name() + ": " + status.ordinal() + ", " + status.getCode());
+		}
 		AccountStatus status = AccountStatus.ACTIVE;
 		switch (status) {
 		case ACTIVE:
-			
+
 			break;
 		case BLOCKED:
-			
+
 			break;
 		case CLOSED:
-			
+
 			break;
 		}
 	}
@@ -40,7 +40,7 @@ enum AccountStatus {
 	ACTIVE, BLOCKED, CLOSED;
 
 	public int getCode() {
-		return 100 * (ordinal()+1);
+		return 100 * (ordinal() + 1);
 	}
 
 }
@@ -50,22 +50,27 @@ enum Operator {
 
 		@Override
 		double apply(double x, double y) {
-			return x+y;
+			return x + y;
 		}
-		
+
 	},
 	SUBTRACT("-") {
 
 		@Override
 		double apply(double x, double y) {
-			return x-y;
+			return x - y;
 		}
-		
-	};	
+
+	};
+
 	private String symbol;
-	
+
 	private Operator(String symbol) {
 		this.symbol = symbol;
+	}
+
+	public String getSymbol() {
+		return symbol;
 	}
 
 	abstract double apply(double x, double y);
