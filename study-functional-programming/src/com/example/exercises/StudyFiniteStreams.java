@@ -18,7 +18,10 @@ public class StudyFiniteStreams {
 			// 10^7: Serial:  100.7 ms., Parallel:   24.9 ms.
 			// 10^8: Serial:  1002.2 ms. , Parallel: 195.3 ms.
 			long start = System.currentTimeMillis();
-			var sum = numbers.stream().parallel().mapToLong(Long::valueOf).sum();
+			var myStream = numbers.stream();
+			if (numbers.size() > 500_000)
+				myStream = myStream.parallel();
+			var sum = myStream.mapToLong(Long::valueOf).sum();
 			long stop = System.currentTimeMillis();
 			duration += stop - start;
 			System.err.println(String.format("Sum: %d, Duration: %d", sum, stop - start));
